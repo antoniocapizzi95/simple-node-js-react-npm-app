@@ -16,7 +16,6 @@ pipeline {
             stage('Build') {
                 steps {
                     sh 'npm install'
-                    logstashSend failBuild: true, maxLines: 1000
                 }
             }
              stage('Test') {
