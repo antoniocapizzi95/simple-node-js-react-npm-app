@@ -5,10 +5,6 @@ pipeline {
             args '-p 3000:3000'
             }
         }
-        options{
-            timeout(time: 1, unit: 'HOURS')
-            sendSplunkConsoleLog()
-        }
         environment {
                 CI = 'true'
             }
