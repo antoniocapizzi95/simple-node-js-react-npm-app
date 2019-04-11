@@ -22,7 +22,7 @@ pipeline {
              stage('Pre-Deliver') {
                 agent {
                         docker {
-                            image 'python'
+                            image 'python:3.6-alpine'
                             }
                         }
                  steps {
