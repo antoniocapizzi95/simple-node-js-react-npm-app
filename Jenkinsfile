@@ -19,6 +19,11 @@ pipeline {
                     sh './jenkins/scripts/test.sh'
                 }
              }
+             stage('Pre-Deliver') {
+                             steps {
+                                 sh 'python jenkins/scripts/test.py'
+                             }
+                          }
              stage('Deliver') {
                          steps {
                              sh './jenkins/scripts/deliver.sh'
