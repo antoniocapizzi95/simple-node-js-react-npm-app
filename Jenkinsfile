@@ -2,6 +2,7 @@ pipeline {
     agent {
         docker {
             image 'antoniocapizzi95/node-ubuntu:v1.0'
+            args '-p 3000:3000'
             }
         }
         environment {
