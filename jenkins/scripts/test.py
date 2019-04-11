@@ -15,5 +15,3 @@ sys.stdout = Unbuffered(sys.stdout)
 
 import time
 print("metto in pausa")
-x = str(input("inserisci una lettera "))
-print("ecco a te: "+x)
