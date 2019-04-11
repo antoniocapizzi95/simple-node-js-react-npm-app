@@ -12,9 +12,8 @@ class Unbuffered(object):
 
 import sys
 sys.stdout = Unbuffered(sys.stdout)
-print 'Hello'
 
 import time
 print("metto in pausa")
-time.sleep(10)
-print("sblocco")
+x = str(input("inserisci una lettera "))
+print("ecco a te: "+x)
