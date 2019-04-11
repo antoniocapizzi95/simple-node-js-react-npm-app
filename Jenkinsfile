@@ -1,8 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'node:6-alpine'
-            args '-p 3000:3000'
+            image 'antoniocapizzi95/node-ubuntu:v1.0'
             }
         }
         environment {
@@ -20,11 +19,6 @@ pipeline {
                 }
              }
              stage('Pre-Deliver') {
-                agent {
-                        docker {
-                            image 'python:3.6-alpine'
-                            }
-                        }
                  steps {
                      sh 'python jenkins/scripts/test.py'
                  }
