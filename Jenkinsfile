@@ -20,10 +20,14 @@ pipeline {
                 }
              }
              stage('Pre-Deliver') {
-                             steps {
-                                 sh 'sudo apt install python'
-                                 sh 'python jenkins/scripts/test.py'
-                             }
+                agent {
+                        docker {
+                            image 'python'
+                            }
+                        }
+                 steps {
+                     sh 'python jenkins/scripts/test.py'
+                 }
                           }
              stage('Deliver') {
                          steps {
