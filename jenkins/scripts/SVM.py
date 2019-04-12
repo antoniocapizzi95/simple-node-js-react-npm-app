@@ -16,7 +16,7 @@ sys.stdout = Unbuffered(sys.stdout)
 from sklearn import svm
 
 train_data = [[0, 0, 0, 0, 0, 1, 0, 0], [0, 1, 0, 0, 0, 1, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1], [0, 3, 0, 0, 0, 1, 0, 0], [0, 11, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 4]]
-test_data = [[0, 0, 0, 0, 0, 0, 0, 17], [0, 1, 0, 0, 0, 1, 0, 0]]
+test_data = [[0, 0, 0, 0, 0, 1, 0, 0], [0, 1, 0, 0, 0, 1, 0, 0]]
 
 
 clf = svm.OneClassSVM(nu=0.1, kernel="rbf", gamma=0.1)
@@ -30,3 +30,5 @@ clf.fit(train_data)
 y_pred_test = clf.predict(test_data)
 if -1 in y_pred_test:
     print("anomaly detected")
+else:
+    print("no anomalies")
