@@ -21,7 +21,7 @@ pipeline {
              }
              stage('Pre-Deliver') {
                  steps {
-                     sh 'python jenkins/scripts/test.py'
+                     sh 'python jenkins/scripts/SVM.py'
                  }
                           }
              stage('Deliver') {
