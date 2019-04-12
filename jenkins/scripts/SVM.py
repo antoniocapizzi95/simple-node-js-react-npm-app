@@ -1,7 +1,17 @@
-def sendAlert(message):
-    from slacker import Slacker
-    slack = Slacker('xoxb-607836096374-607542930759-do64JYEYnRtR7fM7rhG97s63')
-    slack.chat.post_message('#research',message)
+class Unbuffered(object):
+   def __init__(self, stream):
+       self.stream = stream
+   def write(self, data):
+       self.stream.write(data)
+       self.stream.flush()
+   def writelines(self, datas):
+       self.stream.writelines(datas)
+       self.stream.flush()
+   def __getattr__(self, attr):
+       return getattr(self.stream, attr)
+
+import sys
+sys.stdout = Unbuffered(sys.stdout)
 
 
 from sklearn import svm
@@ -20,4 +30,4 @@ clf = LocalOutlierFactor(n_neighbors=10, novelty=True, contamination=0.1)
 clf.fit(train_data)
 y_pred_test = clf.predict(test_data)
 if -1 in y_pred_test:
-    sendAlert('Anomaly detected')
+    print("anomaly detected")
