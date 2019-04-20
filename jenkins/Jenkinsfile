@@ -8,11 +8,11 @@ pipeline {
     environment {
         CI = 'true'
     }
-    slackSend color: 'good', message: 'Build done'
     stages {
         stage('Build') {
             steps {
                 sh 'npm install'
+                slackSend color: 'good', message: 'Build done'
             }
         }
         stage('Test') {
