@@ -12,6 +12,7 @@ pipeline {
             stage('Build') {
                 steps {
                     sh 'npm install'
+                    slackSend color: 'good', message: 'Build done'
                 }
             }
              stage('Test') {
