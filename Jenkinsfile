@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'antoniocapizzi95/node-python:v1.0'
-            args '-p 3000:3000'
+            args '-p 3000:3000 --name production'
             }
         }
         environment {
