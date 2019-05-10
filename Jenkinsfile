@@ -11,7 +11,7 @@ pipeline {
         stages {
             stage('Build') {
                 steps {
-                    sh 'git update'
+                    sh 'git pull'
                     sh 'npm install'
                     //slackSend color: 'good', message: 'Build done'
                 }
