@@ -6,7 +6,6 @@ pipeline {
             //agent none
             steps {
                 sh 'git pull /var/repository/simple-node-js-react-npm-app'
-                //slackSend color: 'good', message: 'Build done'
             }
         }
 
