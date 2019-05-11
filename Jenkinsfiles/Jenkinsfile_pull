@@ -3,7 +3,7 @@ pipeline {
 
     stages {
         stage('Pull') {
-            //agent none
+            
             steps {
                 sh 'git pull /var/repository/simple-node-js-react-npm-app'
             }
