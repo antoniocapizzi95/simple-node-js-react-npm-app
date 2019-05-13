@@ -9,13 +9,6 @@ pipeline {
                 CI = 'true'
             }
         stages {
-            stage('Pull') {
-                agent none
-                steps {
-                    sh 'git pull /var/repository/simple-node-js-react-npm-app'
-                    //slackSend color: 'good', message: 'Build done'
-                }
-                        }
             stage('Build') {
                 steps {
                     sh 'npm install'
@@ -30,8 +23,8 @@ pipeline {
              stage('Deliver') {
                          steps {
                              sh './jenkins/scripts/deliver.sh'
-                             input message: 'Finished using the web site? (Click "Proceed" to continue)'
-                             sh './jenkins/scripts/kill.sh'
+                             //input message: 'Finished using the web site? (Click "Proceed" to continue)'
+                             //sh './jenkins/scripts/kill.sh'
                          }
                      }
         }
