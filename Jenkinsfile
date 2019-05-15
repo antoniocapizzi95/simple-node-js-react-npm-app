@@ -9,13 +9,6 @@ pipeline {
                 CI = 'true'
             }
         stages {
-            stage('Pull') {
-                agent none
-                steps {
-                    sh 'git pull /var/repository/simple-node-js-react-npm-app'
-                    //slackSend color: 'good', message: 'Build done'
-                }
-                        }
             stage('Build') {
                 steps {
                     sh 'npm install'
