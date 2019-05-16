@@ -19,6 +19,12 @@ pipeline {
                 steps {
                     sh './jenkins/scripts/test.sh'
                 }
+                post {
+                    success {
+                        slackSend color: 'good', message: 'Test done'
+                    }
+
+                }
              }
              stage('Deliver') {
                          steps {
@@ -29,7 +35,7 @@ pipeline {
                      }
         }
         post {
-                always {
+                success {
                     slackSend color: 'good', message: 'Build done'
                 }
                 failure {
