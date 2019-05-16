@@ -28,4 +28,12 @@ pipeline {
                          }
                      }
         }
+        post {
+                always {
+                    slackSend color: 'good', message: 'Build done'
+                }
+                failure {
+                    slackSend color: 'good', message: 'Build failed'
+                }
+            }
 }
