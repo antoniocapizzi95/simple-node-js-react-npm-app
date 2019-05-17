@@ -41,5 +41,8 @@ pipeline {
                 failure {
                     slackSend color: 'good', message: 'Build failed'
                 }
+                aborted {
+                   slackSend color: 'good', message: 'Build failed'
+                 }
             }
 }
